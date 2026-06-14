@@ -1,0 +1,80 @@
+1.Prototype Inheritance in JavaScript
+
+Prototype inheritance in JavaScript allows objects to inherit properties and methods from other objects. Each object in JavaScript has an internal link to another object called its prototype. This chain of prototypes forms the prototype chain.
+
+When you access a property or method on an object, JavaScript first checks the object itself.
+If the property or method isn’t found, it moves up the prototype chain until it finds the property or reaches the end of the chain (null).
+
+
+const parent = {
+  	greet: function () {
+    	console.log("Hello from the parent object!");
+  	}
+};
+
+const child = Object.create(parent);
+
+child.sayHi = function () {
+  	console.log("Hi from the child object!");
+};
+
+child.greet();
+child.sayHi();
+
+2. Bind() Method
+The bind() method returns a new function with a permanently set this value.
+
+The first argument defines the "this" context.
+Additional arguments are stored and used when the new function runs.
+The original function is not modified.
+
+3. Call() Method
+
+The call() method invokes the function immediately and sets this to the first argument. Any additional arguments are passed directly to the function.
+
+let nameObj = {
+    name: "Tony"
+}
+
+let PrintName = {
+    name: "steve",
+    sayHi: function (age) {
+        console.log(this.name + " age is " + age);
+    }
+}
+
+PrintName.sayHi.call(nameObj, 42);
+
+ex:2,
+
+let nameObj = {
+    name: "Tony"
+}
+
+let PrintName = {
+    name: "steve",
+    sayHi: function (age) {
+        console.log(this.name + " age is " + age);
+    }
+}
+
+Object.prototype.MyCall = function (bindObj, ...args) {
+    bindObj.myMethod = this;
+
+    bindObj.myMethod(...args);
+
+}
+PrintName.sayHi.MyCall(nameObj, 42);
+
+4. Apply() Method
+The apply() method calls a function immediately and sets this to the first argument passed. Unlike call(), the additional arguments must be provided as an array, which are then passed to the function.
+
+Think of DSA like this: every problem has a "how fast" and "how much memory" cost. That's all complexity is. 
+
+How time grows as input (n) grows
+O(1) — constant
+O(log n) — logarithmic
+O(n) — linear
+O(n log n) — linearithmic
+O(n²) — quadratic
+O(2ⁿ) — exponential
