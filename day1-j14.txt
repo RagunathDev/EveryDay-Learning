@@ -78,3 +78,34 @@ O(n) — linear
 O(n log n) — linearithmic
 O(n²) — quadratic
 O(2ⁿ) — exponential
+-------------------------------------------------------------------------------
+aria-label
+Provides an invisible label for screen readers when visible text isn't available.
+html<button aria-label="Close modal">✕</button>
+-------------------
+Cookie
+
+Oldest storage method
+Automatically sent with every HTTP request (headers)
+Used for auth tokens, session IDs — server needs to read them
+Can set HttpOnly (JS can't access) and Secure (HTTPS only) flags
+
+---------------------------
+
+localStorage
+
+Persists forever until manually cleared
+Shared across all tabs of the same origin
+Used for user preferences, theme, language settings
+
+----------------------
+
+sessionStorage
+
+Lives only for the current tab/session
+Closes tab → data gone
+Each tab has its own separate sessionStorage
+Used for multi-step forms, one-time wizard data
+
+
+
